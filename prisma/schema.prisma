@@ -27,3 +27,12 @@ model Password {
   user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId   String @unique
 }
+
+model Product {
+  id       String @id @default(uuid())
+  name String
+  category String
+  price Int
+  oldPrice Int
+  image String
+}
