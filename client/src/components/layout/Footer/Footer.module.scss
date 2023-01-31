@@ -1,0 +1,120 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.footer {
+  background-color: #3d3d3d;
+
+  .row {
+    padding: 25px;
+    display: relative;
+  }
+}
+.media {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+  border-bottom: 1px solid #4b4b4b;
+  a {
+    color: #4b4b4b;
+    font-size: 50px;
+    padding: 60px 100px;
+    position: relative;
+  }
+
+  .instagram::after {
+    content: '';
+    position: absolute;
+    height: 140px;
+    transform: rotate(20deg);
+    background: transparent;
+    bottom: 17px;
+    right: -20px;
+    z-index: 5;
+    border-right: 5px solid #4b4b4b;
+  }
+
+  .twitter:hover {
+    color: rgb(68, 68, 216);
+  }
+
+  .facebook:hover {
+    color: rgb(15, 15, 115);
+  }
+  .instagram:hover {
+    color: rgb(229, 67, 67);
+  }
+  .pinterest:hover {
+    color: rgb(26, 201, 201);
+  }
+
+  .facebook::after {
+    content: '';
+    position: absolute;
+    height: 140px;
+    transform: rotate(20deg);
+    background: transparent;
+    bottom: 17px;
+    right: -20px;
+    z-index: 5;
+    border-right: 5px solid #4b4b4b;
+  }
+  .twitter::after {
+    content: '';
+    position: absolute;
+    height: 140px;
+    transform: rotate(20deg);
+    background: transparent;
+    bottom: 17px;
+    right: -20px;
+    z-index: 5;
+    border-right: 5px solid #4b4b4b;
+  }
+}
+.logo_div {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_div::before {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  background: transparent;
+  top: -7px;
+  left: 15px;
+  z-index: 5;
+  border-top: 5px solid $color-red;
+  border-left: 5px solid $color-red;
+}
+
+.logo_div::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  background: transparent;
+  bottom: -7px;
+  right: 15px;
+  z-index: 5;
+  border-right: 5px solid $color-black;
+  border-bottom: 5px solid $color-black;
+}
+
+.logo_div button {
+  padding: auto;
+  font-size: 30px;
+  color: $color-black;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 800;
+  background-color: transparent;
+  height: 50px;
+}

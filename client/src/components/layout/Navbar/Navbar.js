@@ -27,7 +27,7 @@ const NavBar = () => {
           <Nav className="px-5 my-2 my-lg-0 justify-content-end">
             <Nav.Link href="/">Home</Nav.Link>
           </Nav>
-          <Row className="justify-content-end">
+          <Row className={'justify-content-end' + styles.row}>
             <Col className="col-6">
               <Form className="d-flex">
                 <Form.Control
