@@ -1,0 +1,57 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.navbar {
+  font-size: $base-size * 1.4;
+  text-transform: uppercase;
+  color: $global-text-color;
+  background-color: $color-white;
+  margin: 0;
+}
+
+.logo_div {
+  position: relative;
+  z-index: 1;
+}
+
+.logo_div::before {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  background: transparent;
+  top: -7px;
+  left: -20px;
+  z-index: 5;
+  border-top: 5px solid $color-red;
+  border-left: 5px solid $color-red;
+}
+
+.logo_div::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  background: transparent;
+  bottom: -7px;
+  right: -20px;
+  z-index: 5;
+  border-right: 5px solid $color-black;
+  border-bottom: 5px solid $color-black;
+}
+
+.logo_div button {
+  padding: auto;
+  font-size: 30px;
+  color: $color-black;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 800;
+  background-color: $color-white;
+  height: 50px;
+}
+
+.bnt:hover {
+  background-color: $global-text-color;
+}
