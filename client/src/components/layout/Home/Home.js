@@ -1,7 +1,12 @@
 import React from 'react';
+import CarouselRc from '../../features/Carousel/CarouselRc';
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <CarouselRc />
+    </>
+  );
 };
 
 export default Home;

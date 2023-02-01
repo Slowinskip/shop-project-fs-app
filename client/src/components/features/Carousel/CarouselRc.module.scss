@@ -1,0 +1,18 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.carousel {
+  margin: 48px 0;
+  img {
+    height: 500px;
+    object-fit: cover;
+  }
+
+  .content {
+    background-color: black;
+
+    h3 {
+      font-size: $base-size * 1.2;
+    }
+  }
+}
