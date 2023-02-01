@@ -7,6 +7,19 @@
   .row {
     padding: 25px;
     display: relative;
+
+    .links {
+      display: flex;
+      justify-content: center;
+      a {
+        text-decoration: none;
+        color: #4b4b4b;
+        margin-right: 15px;
+      }
+      a:hover {
+        color: $color-white;
+      }
+    }
   }
 }
 .media {

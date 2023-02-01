@@ -47,13 +47,21 @@ const Footer = () => {
           </Col>
         </Row>
         <Row className={styles.row}>
-          <Col className={'col-5'}>2</Col>
+          <Col className={'col-5 ' + styles.links}>
+            <a href="/faq">FAQ</a>
+            <a href="/contact">Contact us</a>
+            <a href="/returns">Returns</a>
+            <a href="/payment">Payment methods</a>
+          </Col>
+
           <Col className={'col-2'}>
             <div class={styles.logo_div}>
               <button href="/">F-Step</button>
             </div>
           </Col>
-          <Col className={'col-5'}>3</Col>
+          <Col className={'col-5 ' + styles.links}>
+            <h6>Copyright © 2022 "1-2-SHOE" Store. All Rights Reserved</h6>
+          </Col>
         </Row>
       </Container>
     </div>
