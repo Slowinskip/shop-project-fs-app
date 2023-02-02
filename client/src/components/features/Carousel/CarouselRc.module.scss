@@ -3,16 +3,43 @@
 
 .carousel {
   margin: 48px 0;
+
+  .carouselItem {
+    z-index: 0;
+  }
   img {
     height: 500px;
     object-fit: cover;
   }
 
   .content {
-    background-color: black;
+    z-index: 3;
 
+    Button {
+      background-color: white;
+      opacity: 0.4;
+    }
+    Button:hover {
+      opacity: 1;
+    }
     h3 {
-      font-size: $base-size * 1.2;
+      font-size: $base-size * 4;
+    }
+    p {
+      font-size: $base-size * 2;
     }
   }
+}
+
+.carouselItem::after {
+  content: '';
+  background-color: black;
+  min-height: 110px;
+  width: 100%;
+  opacity: 0.6;
+  position: absolute;
+  top: 82%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
 }
