@@ -7,9 +7,10 @@
   border-radius: 4px;
   display: flex;
   gap: 5px;
+  z-index: 1;
 }
 
-.card img {
+.card .img {
   z-index: 0;
   height: 100%;
   flex: 1;
@@ -22,10 +23,55 @@
   justify-content: center;
   align-items: center;
   opacity: 0.6;
-  object-fit: cover;
+  z-index: 1;
+
+  img {
+    transition: all 1s;
+  }
 }
 
-.card img:hover {
+.card .img:hover {
   flex: 5;
   opacity: 1;
+
+  .content {
+    opacity: 1;
+  }
+  img {
+    scale: 70%;
+  }
+  .content::after {
+    opacity: 0.6;
+  }
+}
+.content {
+  position: absolute;
+  background-color: transparent;
+  display: flex;
+  top: 150%;
+  z-index: 1;
+  color: $color-white;
+  opacity: 0;
+  transition: all 1s;
+  padding: 15px 25px;
+  .btn {
+    z-index: 1;
+    margin-left: 10px;
+    border-radius: 25px;
+  }
+}
+.content::after {
+  content: '';
+  background-color: black;
+  min-height: 110px;
+  width: 100%;
+  opacity: 0.6;
+  position: absolute;
+  border-radius: 65px;
+
+  top: 50%;
+  left: 50%;
+  transition: all 1s;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
