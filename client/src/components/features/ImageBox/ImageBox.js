@@ -10,7 +10,7 @@ import { GiReturnArrow } from 'react-icons/gi';
 
 const ImageBox = () => {
   return (
-    <Row>
+    <Row className={styles.imageBox}>
       <Col className={'col-8 '}>
         <div class={styles.card}>
           <div className={styles.img}>
@@ -45,28 +45,40 @@ const ImageBox = () => {
       </Col>
       <Row className={'col-4 '}>
         <div className={styles.informationBox}>
-          <div className={'col-4 ' + styles.icon}>
+          <div className={'col-3 ' + styles.icon}>
             <MdOutlineLocalShipping size={60} />
           </div>
-          <div className={'col-8 '}>1</div>
+          <div className={'col-8 ' + styles.informationText}>
+            <h2>Free delivery</h2>
+            <h5>Orders over $40</h5>
+          </div>
         </div>
         <div className={styles.informationBox}>
-          <div className={'col-4 ' + styles.icon}>
+          <div className={'col-3 ' + styles.icon}>
             <BsCashCoin size={60} />
           </div>
-          <div className={'col-8 '}>1</div>
+          <div className={'col-8 ' + styles.informationText}>
+            <h2>Cashback</h2>
+            <h5>You can save 5%</h5>
+          </div>
         </div>
         <div className={styles.informationBox}>
-          <div className={'col-4 ' + styles.icon}>
+          <div className={'col-3 ' + styles.icon}>
             <GiReturnArrow size={60} />
           </div>
-          <div className={'col-8 '}>1</div>
+          <div className={'col-8 ' + styles.informationText}>
+            <h2>Free Returns</h2>
+            <h5>Within 14 days of ordering</h5>
+          </div>
         </div>
         <div className={styles.informationBox}>
-          <div className={'col-4 ' + styles.icon}>
+          <div className={'col-3 ' + styles.icon}>
             <BiSupport size={60} />
           </div>
-          <div className={'col-8 '}>1</div>
+          <div className={'col-8 ' + styles.informationText}>
+            <h2>Support</h2>
+            <h5>We are there for you 24/7</h5>
+          </div>
         </div>
       </Row>
     </Row>
