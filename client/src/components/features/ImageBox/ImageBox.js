@@ -3,11 +3,15 @@ import Button from 'react-bootstrap/esm/Button';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import styles from './ImageBox.module.scss';
+import { MdOutlineLocalShipping } from 'react-icons/md';
+import { BsCashCoin } from 'react-icons/bs';
+import { BiSupport } from 'react-icons/bi';
+import { GiReturnArrow } from 'react-icons/gi';
 
 const ImageBox = () => {
   return (
     <Row>
-      <Col className="col-11">
+      <Col className={'col-8 '}>
         <div class={styles.card}>
           <div className={styles.img}>
             <div className={styles.content}>
@@ -39,7 +43,32 @@ const ImageBox = () => {
           </div>
         </div>
       </Col>
-      <Col className="col-1">1</Col>
+      <Row className={'col-4 '}>
+        <div className={styles.informationBox}>
+          <div className={'col-4 ' + styles.icon}>
+            <MdOutlineLocalShipping size={60} />
+          </div>
+          <div className={'col-8 '}>1</div>
+        </div>
+        <div className={styles.informationBox}>
+          <div className={'col-4 ' + styles.icon}>
+            <BsCashCoin size={60} />
+          </div>
+          <div className={'col-8 '}>1</div>
+        </div>
+        <div className={styles.informationBox}>
+          <div className={'col-4 ' + styles.icon}>
+            <GiReturnArrow size={60} />
+          </div>
+          <div className={'col-8 '}>1</div>
+        </div>
+        <div className={styles.informationBox}>
+          <div className={'col-4 ' + styles.icon}>
+            <BiSupport size={60} />
+          </div>
+          <div className={'col-8 '}>1</div>
+        </div>
+      </Row>
     </Row>
   );
 };
