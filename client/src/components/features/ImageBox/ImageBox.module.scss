@@ -39,6 +39,7 @@
 
   .content {
     opacity: 1;
+    scale: 100%;
   }
   img {
     scale: 70%;
@@ -53,6 +54,8 @@
   display: flex;
   top: 150%;
   z-index: 1;
+  scale: 10%;
+
   color: $color-white;
   opacity: 0;
   transition: all 1s;
