@@ -34,7 +34,7 @@ model Product {
   category String
   information String
   price Int
-  oldPrice Int
+  oldPrice Int?
   image String
   gallery Images[]
   
