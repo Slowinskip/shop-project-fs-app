@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Tabs, Tab, Spinner } from 'react-bootstrap';
+import { Container, Tabs, Tab, Spinner, Col } from 'react-bootstrap';
 import Row from 'react-bootstrap/esm/Row';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from '../../../config';
@@ -9,13 +9,14 @@ import {
   getProductsWomen,
   updateProducts,
 } from '../../../redux/productsRedux';
+import ProductBox from '../../common/ProductBox/ProductBox';
 import styles from './FeatureProduct.module.scss';
 
 const FeatureProduct = () => {
   const [isLoading, setLoading] = useState(false);
   const [products, setProducts] = useState();
   const dispatch = useDispatch();
-
+  console.log(products);
   useEffect(() => fetchData(), []);
 
   function fetchData() {
@@ -24,11 +25,10 @@ const FeatureProduct = () => {
       .then((res) => res.json())
       .then((products) => {
         dispatch(updateProducts(products));
-        setProducts(products);
         setLoading(false);
       });
   }
-
+  const allProducts = useSelector(getProducts);
   const productsMen = useSelector(getProductsMen);
   const productsWoman = useSelector(getProductsWomen);
   console.log(productsMen);
@@ -49,14 +49,32 @@ const FeatureProduct = () => {
               defaultActiveKey="all"
               className={'m-3 justify-content-center ' + styles.tabs}
             >
-              <Tab eventKey="all" title="All">
-                Tab 1 content
+              <Tab eventKey="all" title="All" className={styles.tab}>
+                <Row xs={1} md={2} lg={4} className="g-3 ">
+                  {allProducts.map((product) => (
+                    <Col key={product.id}>
+                      <ProductBox {...product} />
+                    </Col>
+                  ))}
+                </Row>
               </Tab>
               <Tab eventKey="woman" title="Woman">
-                Tab 2 content
+                <Row xs={1} md={2} lg={4} className="g-3 ">
+                  {productsWoman.map((product) => (
+                    <Col key={product.id}>
+                      <ProductBox {...product} />
+                    </Col>
+                  ))}
+                </Row>
               </Tab>
               <Tab eventKey="man" title="Men">
-                Tab 3 content
+                <Row xs={1} md={2} lg={4} className="g-3 ">
+                  {productsMen.map((product) => (
+                    <Col key={product.id}>
+                      <ProductBox {...product} />
+                    </Col>
+                  ))}
+                </Row>
               </Tab>
             </Tabs>
           </Row>

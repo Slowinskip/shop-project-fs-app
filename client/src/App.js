@@ -4,15 +4,8 @@ import Home from './components/layout/Home/Home';
 import Navbar from './components/layout/Navbar/Navbar';
 import InProgress from './components/views/InProgress/InProgress';
 import NotFound from './components/views/NotFound/NotFound';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchProducts } from './redux/productsRedux';
 
 function App() {
-  const dispatch = useDispatch();
-
-  // useEffect(() => dispatch(fetchProducts()), [dispatch]);
-
   return (
     <main>
       <Navbar />

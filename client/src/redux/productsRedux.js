@@ -1,11 +1,8 @@
 //selectors
 
-import { API_URL } from '../config';
-
 export const getProducts = ({ products }) => products;
 export const getProductsMen = ({ products }) =>
   products.filter((product) => product.category === 'MEN');
-
 export const getProductsWomen = ({ products }) =>
   products.filter((product) => product.category === 'WOMAN');
 
