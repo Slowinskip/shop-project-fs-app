@@ -17,7 +17,6 @@ const FeatureProduct = () => {
   const [isLoading, setLoading] = useState(false);
   const [products, setProducts] = useState();
   const dispatch = useDispatch();
-  console.log(products);
   useEffect(() => fetchData(), []);
 
   function fetchData() {
@@ -32,8 +31,6 @@ const FeatureProduct = () => {
   const allProducts = useSelector(getProducts);
   const productsMen = useSelector(getProductsMen);
   const productsWoman = useSelector(getProductsWomen);
-  console.log(productsMen);
-  console.log(productsWoman);
   if (isLoading) {
     return (
       <Spinner animation="border" role="status" className="d-block mx-auto">
