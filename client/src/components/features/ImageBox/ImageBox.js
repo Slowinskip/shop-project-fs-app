@@ -4,9 +4,10 @@ import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import styles from './ImageBox.module.scss';
 import { MdOutlineLocalShipping } from 'react-icons/md';
-import { BsCashCoin } from 'react-icons/bs';
-import { BiSupport } from 'react-icons/bi';
+import { BsCashStack } from 'react-icons/bs';
 import { GiReturnArrow } from 'react-icons/gi';
+import { AiFillPhone } from 'react-icons/ai';
+
 import { Container } from 'react-bootstrap';
 
 const ImageBox = () => {
@@ -57,7 +58,7 @@ const ImageBox = () => {
           </div>
           <div className={styles.informationBox}>
             <div className={'col-3 ' + styles.icon}>
-              <BsCashCoin size={60} />
+              <BsCashStack size={60} />
             </div>
             <div className={'col-8 ' + styles.informationText}>
               <h2>Cashback</h2>
@@ -75,7 +76,7 @@ const ImageBox = () => {
           </div>
           <div className={styles.informationBox}>
             <div className={'col-3 ' + styles.icon}>
-              <BiSupport size={60} />
+              <AiFillPhone size={60} />
             </div>
             <div className={'col-8 ' + styles.informationText}>
               <h2>Support</h2>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Tabs, Tab, Spinner, Col } from 'react-bootstrap';
+import { Container, Spinner, Col } from 'react-bootstrap';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Row from 'react-bootstrap/esm/Row';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from '../../../config';
@@ -41,45 +42,49 @@ const FeatureProduct = () => {
     );
   } else
     return (
-      <div className={styles.FuturedProductRoot}>
-        <Container>
-          <Row className="justify-content-center text-center ">
-            <h1 className="mt-4">Categories:</h1>
-            <Tabs
-              defaultActiveKey="all"
-              className={'m-3 justify-content-center ' + styles.tabs}
-            >
-              <Tab eventKey="all" title="All" className={styles.tab}>
-                <Row xs={1} md={2} lg={4} className="g-3 ">
-                  {allProducts.map((product) => (
-                    <Col key={product.id}>
-                      <ProductBox {...product} />
-                    </Col>
-                  ))}
-                </Row>
-              </Tab>
-              <Tab eventKey="woman" title="Woman">
-                <Row xs={1} md={2} lg={4} className="g-3 ">
-                  {productsWoman.map((product) => (
-                    <Col key={product.id}>
-                      <ProductBox {...product} />
-                    </Col>
-                  ))}
-                </Row>
-              </Tab>
-              <Tab eventKey="man" title="Men">
-                <Row xs={1} md={2} lg={4} className="g-3 ">
-                  {productsMen.map((product) => (
-                    <Col key={product.id}>
-                      <ProductBox {...product} />
-                    </Col>
-                  ))}
-                </Row>
-              </Tab>
-            </Tabs>
-          </Row>
-        </Container>
-      </div>
+      <Row className={styles.root}>
+        <Tabs>
+          <Col className={'text-center mt-3'}>
+            <TabList className={'mt-5 ' + styles.tabList}>
+              <Tab className={styles.tab}>All</Tab>
+              <Tab className={styles.tab}>Woman</Tab>
+              <Tab className={styles.tab}>Men</Tab>
+            </TabList>
+          </Col>
+          <Container className="mt-5">
+            <TabPanel>
+              {' '}
+              <Row xs={1} md={2} lg={4} className="g-3 ">
+                {allProducts.map((product) => (
+                  <Col key={product.id}>
+                    <ProductBox {...product} />
+                  </Col>
+                ))}
+              </Row>
+            </TabPanel>
+            <TabPanel>
+              {' '}
+              <Row xs={1} md={2} lg={4} className="g-3 ">
+                {productsWoman.map((product) => (
+                  <Col key={product.id}>
+                    <ProductBox {...product} />
+                  </Col>
+                ))}
+              </Row>
+            </TabPanel>
+            <TabPanel>
+              {' '}
+              <Row xs={1} md={2} lg={4} className="g-3 ">
+                {productsMen.map((product) => (
+                  <Col key={product.id}>
+                    <ProductBox {...product} />
+                  </Col>
+                ))}
+              </Row>
+            </TabPanel>
+          </Container>
+        </Tabs>
+      </Row>
     );
 };
 

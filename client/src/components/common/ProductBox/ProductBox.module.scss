@@ -1,2 +1,46 @@
 @import '../../../styles/settings.scss';
 @import '../../../styles/global.scss';
+
+.root {
+  border-bottom-right-radius: 30px;
+
+  .categories,
+  .sale {
+    background-color: red;
+    padding: 5px;
+    color: white;
+    font-size: 10px;
+    width: 30%;
+    text-align: center;
+    border-radius: 5px;
+    opacity: 0.6;
+  }
+  .sale {
+    background-color: green;
+    width: 15%;
+    margin-left: 5px;
+  }
+  .cardTitle {
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  .priceDiv {
+    .price {
+      margin: 10px 10px;
+      font-size: 20px;
+      color: red;
+      font-weight: 600;
+    }
+    .oldPrice {
+      margin: 10px 10px;
+      font-size: 20px;
+      text-decoration: line-through;
+    }
+    .normalPrice {
+      margin: 10px 10px;
+      font-size: 20px;
+    }
+  }
+}
