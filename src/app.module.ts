@@ -10,15 +10,26 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 import * as cors from 'cors';
+import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
     PrismaModule,
     ProductModule,
     UsersModule,
     AuthModule,
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: process.env.DB_HOST,
+      port: 3306,
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true,
+    }),
     ConfigModule.forRoot({ load: [configuration], isGlobal: true }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'client', 'build'),
+      rootPath: join('client/build'),
     }),
   ],
   controllers: [AppController],

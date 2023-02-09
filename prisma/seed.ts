@@ -21,7 +21,6 @@ function getProduct() {
         'Ut non orci sit amet orci sagittis pretium quis ac purus. Quisque commodo nulla et elit interdum congue. Vestibulum nec aliquam dolor.',
       price: 180,
       oldPrice: 0,
-
       image: 'Lacoste-BN1.jpg',
     },
 
@@ -43,7 +42,6 @@ function getProduct() {
         'Nullam in nisl varius, aliquet justo eu, commodo turpis. Proin nec interdum velit, et elementum risus.',
       price: 50,
       oldPrice: 0,
-
       image: 'Boss.jpg',
     },
     {
@@ -64,7 +62,6 @@ function getProduct() {
         'Nullam in nisl varius, aliquet justo eu, commodo turpis. Proin nec interdum velit, et elementum risus.',
       price: 450,
       oldPrice: 0,
-
       image: 'ea1.jpg',
     },
     {
@@ -75,7 +72,6 @@ function getProduct() {
         'Proin nec interdum velit, et elementum risus. Nullam in nisl varius, aliquet justo eu, commodo turpis. ',
       price: 150,
       oldPrice: 0,
-
       image: 'hugo.jpg',
     },
     {
@@ -86,7 +82,6 @@ function getProduct() {
         'Etiam scelerisque porttitor erat, at pellentesque nisi efficitur sit amet. Maecenas venenatis, felis non dapibus eleifend, nunc dolor rutrum est, sed vehicula tortor velit at enim.',
       price: 70,
       oldPrice: 0,
-
       image: 'ck-woman.jpg',
     },
     {
@@ -97,7 +92,6 @@ function getProduct() {
         'Maecenas venenatis, felis non dapibus eleifend, nunc dolor rutrum est, sed vehicula tortor velit at enim. Etiam scelerisque porttitor erat, at pellentesque nisi efficitur sit amet. ',
       price: 290,
       oldPrice: 0,
-
       image: 'replay.jpg',
     },
     {
@@ -128,7 +122,6 @@ function getProduct() {
         'Rutrum est, nunc dolor Felis non dapibus eleifend, maecenas venenatis.  Sed vehicula tortor velit at enim. Etiam scelerisque porttitor erat, at pellentesque nisi efficitur sit amet. ',
       price: 440,
       oldPrice: 0,
-
       image: 'skechers.jpg',
     },
   ];
@@ -136,6 +129,10 @@ function getProduct() {
 
 function getImages() {
   return [
+    {
+      image: 'skechers.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e012',
+    },
     {
       image: 'skechers3.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e012',
@@ -148,7 +145,10 @@ function getImages() {
       image: 'skechers1.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e012',
     },
-
+    {
+      image: 'levis.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e011',
+    },
     {
       image: 'levis3.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e011',
@@ -162,7 +162,10 @@ function getImages() {
       image: 'levis1.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e011',
     },
-
+    {
+      image: 'buffalo.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e010',
+    },
     {
       image: 'buffalo3.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e010',
@@ -176,7 +179,10 @@ function getImages() {
       image: 'buffalo1.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e010',
     },
-
+    {
+      image: 'replay.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e09',
+    },
     {
       image: 'replay3.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e09',
@@ -189,7 +195,10 @@ function getImages() {
       image: 'replay1.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e09',
     },
-
+    {
+      image: 'ck-woman.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e08',
+    },
     {
       image: 'ck-woman2.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e08',
@@ -202,6 +211,10 @@ function getImages() {
     {
       image: 'ck-woman1.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e08',
+    },
+    {
+      image: 'hugo.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e07',
     },
 
     {
@@ -216,7 +229,10 @@ function getImages() {
       image: 'hugo1.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e07',
     },
-
+    {
+      image: 'ea1.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e06',
+    },
     {
       image: 'ea4.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e06',
@@ -230,7 +246,10 @@ function getImages() {
       image: 'ea2.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e06',
     },
-
+    {
+      image: 'Puma-SC1.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e01',
+    },
     {
       image: 'Puma-SC2.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e01',
@@ -245,6 +264,11 @@ function getImages() {
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e01',
     },
     {
+      image: 'Lacoste-BN1.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e02',
+    },
+
+    {
       image: 'Lacoste-BN2.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e02',
     },
@@ -256,6 +280,10 @@ function getImages() {
     {
       image: 'Lacoste-BN4.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e02',
+    },
+    {
+      image: 'CK-MN.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e03',
     },
     {
       image: 'CK-MN1.jpg',
@@ -271,6 +299,10 @@ function getImages() {
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e03',
     },
     {
+      image: 'Boss.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e04',
+    },
+    {
       image: 'Boss1.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e04',
     },
@@ -281,6 +313,10 @@ function getImages() {
     {
       image: 'Boss3.jpg',
       productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e04',
+    },
+    {
+      image: 'tommy.jpg',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e05',
     },
     {
       image: 'tommy1.jpg',

@@ -55,7 +55,7 @@ const Footer = () => {
           </Col>
 
           <Col className={'col-2'}>
-            <div class={styles.logo_div}>
+            <div className={styles.logo_div}>
               <button href="/">F-Step</button>
             </div>
           </Col>

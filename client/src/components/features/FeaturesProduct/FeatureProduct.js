@@ -23,8 +23,8 @@ const FeatureProduct = () => {
     setLoading(true);
     fetch(API_URL + '/product')
       .then((res) => res.json())
-      .then((products) => {
-        dispatch(updateProducts(products));
+      .then(async (products) => {
+        await dispatch(updateProducts(products));
         setLoading(false);
       });
   }

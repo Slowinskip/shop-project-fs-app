@@ -15,7 +15,7 @@ const ImageBox = () => {
     <Container>
       <Row className={styles.imageBox}>
         <Col className={'col-8 '}>
-          <div class={styles.card}>
+          <div className={styles.card}>
             <div className={styles.img}>
               <div className={styles.content}>
                 <h2>You choose the style</h2>
