@@ -6,6 +6,7 @@ import Navbar from './components/layout/Navbar/Navbar';
 import InProgress from './components/views/InProgress/InProgress';
 import Login from './components/views/Login/Login';
 import NotFound from './components/views/NotFound/NotFound';
+import Register from './components/views/Register/Register';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<InProgress />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
       <Footer />

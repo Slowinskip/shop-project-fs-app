@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Alert, Button, Container, Form } from 'react-bootstrap';
-import styles from './Login.module.scss';
+import styles from './Register.module.scss';
 
-const Login = () => {
+const Register = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
@@ -20,10 +20,7 @@ const Login = () => {
         className="col-12 col-sm-3 mx-auto my-5 pb-5"
         onSubmit={handleSubmit}
       >
-        <h1>Login</h1>
-        <p>
-          For the test, use a ready-made account: login: "" and password: ""
-        </p>
+        <h1>Register</h1>
         {error && (
           <Alert variant="danger">
             Username or password is too short. You need at least 6 characters
@@ -46,11 +43,11 @@ const Login = () => {
           ></Form.Control>
         </Form.Group>
         <Button variant="primary" type="submit">
-          Sign in
+          Register
         </Button>
       </Form>
     </Container>
   );
 };
 
-export default Login;
+export default Register;

@@ -1,0 +1,10 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.container {
+  color: $productInfo-color;
+
+  Button {
+    margin-top: 10px;
+  }
+}
