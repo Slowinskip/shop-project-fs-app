@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row, Spinner } from 'react-bootstrap';
+import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { FaSketch } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { API_URL } from '../../../config';
 import { getProductsById } from '../../../redux/productsRedux';
+import Quantity from '../../common/Quantity/Quantity';
 import styles from './ProductPage.module.scss';
 
 const ProductPage = () => {
   const [activePhoto, setActivePhoto] = useState('');
+  const [activeSize, setActiveSize] = useState('');
   const [productData, setproductData] = useState(false);
   const { id } = useParams();
   const fetchDataRedux = useSelector((state) => getProductsById(state, id));
@@ -71,17 +73,35 @@ const ProductPage = () => {
             <h1>{productData.name}</h1>
             {productData.oldPrice > 0 ? (
               <span>
-                <span className={styles.new_price}>
-                  Now ${productData.price}
-                </span>
+                <span className={styles.new_price}>${productData.price}</span>
                 <span className={styles.old_price}>
-                  Was ${productData.oldPrice}
+                  ${productData.oldPrice}
                 </span>
               </span>
             ) : (
-              <span className={styles.new_price}>${productData.price}</span>
+              <span className={styles.regular_price}>${productData.price}</span>
             )}
             <p>{productData.information}</p>
+            <Quantity />
+            <div className="d-flex flex-row">
+              {productData.size.sort().map((size) => (
+                <div className={styles.size_buttons} key={size}>
+                  <button
+                    className={
+                      size === activeSize
+                        ? styles.size_active
+                        : styles.size_inactive
+                    }
+                    onClick={() => setActiveSize(size)}
+                  >
+                    {size.size}
+                  </button>
+                </div>
+              ))}
+            </div>
+            <Button variant="outline-secondary" className={styles.bntAddtoCard}>
+              Add to Card
+            </Button>
           </div>
         </Row>
       </Container>

@@ -131,53 +131,53 @@ function getImages() {
   return [
     {
       image: 'skechers.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e012',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e12',
     },
     {
       image: 'skechers3.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e012',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e12',
     },
     {
       image: 'skechers2.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e012',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e12',
     },
     {
       image: 'skechers1.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e012',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e12',
     },
     {
       image: 'levis.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e011',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e11',
     },
     {
       image: 'levis3.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e011',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e11',
     },
     {
       image: 'levis2.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e011',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e11',
     },
 
     {
       image: 'levis1.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e011',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e11',
     },
     {
       image: 'buffalo.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e010',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e10',
     },
     {
       image: 'buffalo3.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e010',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e10',
     },
     {
       image: 'buffalo2.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e010',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e10',
     },
 
     {
       image: 'buffalo1.jpg',
-      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e010',
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e10',
     },
     {
       image: 'replay.jpg',
@@ -332,6 +332,211 @@ function getImages() {
     },
   ];
 }
+function getSize() {
+  return [
+    {
+      size: 31,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e12',
+    },
+    {
+      size: 32,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e12',
+    },
+    {
+      size: 33,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e12',
+    },
+    {
+      size: 34,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e12',
+    },
+    {
+      size: 29,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e11',
+    },
+    {
+      size: 30,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e11',
+    },
+    {
+      size: 31,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e11',
+    },
+
+    {
+      size: 32,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e11',
+    },
+    {
+      size: 30,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e10',
+    },
+    {
+      size: 31,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e10',
+    },
+    {
+      size: 32,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e10',
+    },
+
+    {
+      size: 33,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e10',
+    },
+    {
+      size: 31,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e09',
+    },
+    {
+      size: 32,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e09',
+    },
+    {
+      size: 33,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e09',
+    },
+    {
+      size: 34,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e09',
+    },
+    {
+      size: 27,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e08',
+    },
+    {
+      size: 28,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e08',
+    },
+    {
+      size: 29,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e08',
+    },
+
+    {
+      size: 30,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e08',
+    },
+    {
+      size: 39,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e07',
+    },
+
+    {
+      size: 40,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e07',
+    },
+    {
+      size: 41,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e07',
+    },
+    {
+      size: 42,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e07',
+    },
+    {
+      size: 40,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e06',
+    },
+    {
+      size: 41,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e06',
+    },
+    {
+      size: 42,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e06',
+    },
+
+    {
+      size: 43,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e06',
+    },
+    {
+      size: 41,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e01',
+    },
+    {
+      size: 42,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e01',
+    },
+    {
+      size: 43,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e01',
+    },
+
+    {
+      size: 44,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e01',
+    },
+    {
+      size: 42,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e02',
+    },
+
+    {
+      size: 43,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e02',
+    },
+    {
+      size: 44,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e02',
+    },
+
+    {
+      size: 45,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e02',
+    },
+    {
+      size: 40,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e03',
+    },
+    {
+      size: 41,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e03',
+    },
+    {
+      size: 42,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e03',
+    },
+
+    {
+      size: 43,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e03',
+    },
+    {
+      size: 38,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e04',
+    },
+    {
+      size: 39,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e04',
+    },
+    {
+      size: 40,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e04',
+    },
+    {
+      size: 41,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e04',
+    },
+    {
+      size: 40,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e05',
+    },
+    {
+      size: 41,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e05',
+    },
+    {
+      size: 42,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e05',
+    },
+    {
+      size: 43,
+      productId: 'c920c7b9-a67d-4edb-8ce7-e3c9f3889e05',
+    },
+  ];
+}
 
 async function seed() {
   await Promise.all(
@@ -347,6 +552,14 @@ async function seed1() {
     }),
   );
 }
+async function seed2() {
+  await Promise.all(
+    getSize().map((size) => {
+      return db.size.create({ data: size });
+    }),
+  );
+}
 
 seed();
 seed1();
+seed2();

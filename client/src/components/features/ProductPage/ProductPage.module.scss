@@ -8,7 +8,6 @@
   width: 100%;
   max-height: 100%;
   margin: 10px 0 10px 0;
-  border: 1px solid red;
   &_button {
     border: 1px solid white;
     background-color: white;
@@ -34,6 +33,46 @@
 }
 
 .productInfo {
-  padding: 15px;
-  border: 1px solid red;
+  padding: 10%;
+  color: $productInfo-color;
+  h1 {
+    font-weight: bold;
+  }
+  .new_price {
+    font-size: $base-size * 3;
+    color: rgb(228, 43, 43);
+    font-weight: bold;
+  }
+  .old_price {
+    font-size: $base-size * 2;
+
+    margin-left: 10px;
+    text-decoration: line-through;
+  }
+  .regular_price {
+    font-size: $base-size * 3;
+    font-weight: bold;
+  }
+  p {
+    margin: 15px 0;
+  }
+  .size_buttons {
+    margin: 15px 2px;
+    background-color: $color-white;
+    border: none;
+  }
+  .size_active {
+    background-color: $color-white;
+    border-color: $productInfo-color;
+  }
+  .size_inactive {
+    background-color: $color-white;
+    border: 1px solid $global-text-color;
+
+    &:hover {
+      background-color: $global-text-color;
+    }
+  }
+  .bntAddtoCard {
+  }
 }

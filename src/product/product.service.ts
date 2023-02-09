@@ -8,14 +8,14 @@ export class ProductService {
 
   public async getAll(): Promise<Product[]> {
     return this.prismaService.product.findMany({
-      include: { gallery: true },
+      include: { gallery: true, size: true },
     });
   }
 
   public getById(id: Product['id']): Promise<Product | null> {
     return this.prismaService.product.findUnique({
       where: { id },
-      include: { gallery: true },
+      include: { gallery: true, size: true },
     });
   }
 }
