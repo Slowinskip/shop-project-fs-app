@@ -7,7 +7,6 @@ import ImageBox from '../../features/ImageBox/ImageBox';
 const Home = () => {
   return (
     <>
-      <Quantity />
       <CarouselRc />
       <ImageBox />
       <FeatureProduct />

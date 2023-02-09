@@ -1,22 +1,51 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import styles from './Quantity.module.scss';
 
-const Quantity = () => {
+const Quantity = (props) => {
+  const [value, setValue] = useState(1);
+
+  const handleQuantifiPlus = () => {
+    if (value <= 9) {
+      setValue(value + 1);
+    }
+  };
+  const handleQuantifiMinus = () => {
+    if (value >= 2) {
+      setValue(value - 1);
+    }
+  };
+
+  useEffect(() => {
+    props.onClick(value);
+  }, [value]);
+
   return (
     <div className="d-flex flex-row">
       <h4>Quantity:</h4>
       <div className={'d-flex ' + styles.quantifiDiv}>
-        <Button variant="outline-dark">-</Button>
+        <Button
+          onClick={() => {
+            handleQuantifiMinus();
+          }}
+          variant="outline-dark"
+        >
+          -
+        </Button>
         <input
           type="text"
-          min={1}
-          max={10}
-          value={1}
+          value={value}
           readOnly
           className={'text-center ' + styles.input}
         />
-        <Button variant="outline-dark">+</Button>
+        <Button
+          onClick={() => {
+            handleQuantifiPlus();
+          }}
+          variant="outline-dark"
+        >
+          +
+        </Button>
       </div>
     </div>
   );

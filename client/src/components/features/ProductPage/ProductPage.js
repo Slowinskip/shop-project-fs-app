@@ -12,6 +12,7 @@ const ProductPage = () => {
   const [activePhoto, setActivePhoto] = useState('');
   const [activeSize, setActiveSize] = useState('');
   const [productData, setproductData] = useState(false);
+  const [value, setValue] = useState(1);
   const { id } = useParams();
   const fetchDataRedux = useSelector((state) => getProductsById(state, id));
   useEffect(() => {
@@ -27,7 +28,11 @@ const ProductPage = () => {
     }
   }, []);
 
-  console.log(productData);
+  const changeQuantify = (value) => {
+    setValue(value);
+  };
+
+  console.log(value);
 
   if (!productData) {
     return (
@@ -82,7 +87,7 @@ const ProductPage = () => {
               <span className={styles.regular_price}>${productData.price}</span>
             )}
             <p>{productData.information}</p>
-            <Quantity />
+            <Quantity onClick={changeQuantify} />
             <div className="d-flex flex-row">
               {productData.size.sort().map((size) => (
                 <div className={styles.size_buttons} key={size}>
