@@ -13,6 +13,8 @@ const ProductPage = () => {
   const [activeSize, setActiveSize] = useState('');
   const [productData, setproductData] = useState(false);
   const [value, setValue] = useState(1);
+  const [size, setSize] = useState(1);
+
   const { id } = useParams();
   const fetchDataRedux = useSelector((state) => getProductsById(state, id));
   useEffect(() => {
@@ -29,10 +31,13 @@ const ProductPage = () => {
   }, []);
 
   const changeQuantify = (value) => {
-    setValue(value);
+    setValue(size);
+  };
+  const changeSize = (size) => {
+    setSize(size);
   };
 
-  console.log(value);
+  console.log(size);
 
   if (!productData) {
     return (
@@ -97,7 +102,7 @@ const ProductPage = () => {
                         ? styles.size_active
                         : styles.size_inactive
                     }
-                    onClick={() => setActiveSize(size)}
+                    onClick={() => changeSize(size.size)}
                   >
                     {size.size}
                   </button>
