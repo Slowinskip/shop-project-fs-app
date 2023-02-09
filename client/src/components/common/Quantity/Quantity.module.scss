@@ -1,2 +1,27 @@
 @import '../../../styles/settings.scss';
 @import '../../../styles/global.scss';
+
+h4 {
+  color: $productInfo-color;
+  margin-right: 10px;
+}
+
+.quantifiDiv {
+  background-color: $color-white;
+
+  Button {
+    border: none;
+    border: 1px solid $global-text-color;
+    font-weight: bold;
+
+    &:hover {
+      background-color: $global-text-color;
+    }
+  }
+  .input {
+    background-color: $color-white;
+    border: none;
+    width: 50px;
+    border: 1px solid $global-text-color;
+  }
+}
