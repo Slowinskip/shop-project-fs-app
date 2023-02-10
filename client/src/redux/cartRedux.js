@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux';
 import shortid from 'shortid';
 //selectors
 export const getCart = ({ cart }) => cart;
+export const getCartById = ({ cart }, id) =>
+  cart.find((cart) => cart.id === id);
 // actions
 const createActionName = (actionName) => `app/products/${actionName}`;
 const ADD_CART = createActionName('ADD_AD');
@@ -10,7 +13,13 @@ export const addCart = (payload) => ({ type: ADD_CART, payload });
 const cartReducer = (statePart = [], action) => {
   switch (action.type) {
     case ADD_CART:
-      return [...statePart, { ...action.payload, _id: shortid() }];
+      let index = statePart.findIndex((cart) => cart.id === action.payload.id);
+
+      if (index == -1) return [...statePart, action.payload];
+      return statePart;
+    // return statePart.find(({ cart }) => cart.id === action.id)
+    //   ? statePart
+    //   : [...statePart, { ...action.payload }];
     default:
       return statePart;
   }

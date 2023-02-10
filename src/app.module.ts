@@ -11,6 +11,7 @@ import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 import * as cors from 'cors';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CartModule } from './cart/cart.module';
 @Module({
   imports: [
     PrismaModule,
@@ -31,6 +32,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     ServeStaticModule.forRoot({
       rootPath: join('client/build'),
     }),
+    CartModule,
   ],
   controllers: [AppController],
   providers: [AppService],

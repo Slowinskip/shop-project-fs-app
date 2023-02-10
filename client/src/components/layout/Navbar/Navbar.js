@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Navbar.module.scss';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,15 +8,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { BsCart, BsSearch } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
 import { getCart } from '../../../redux/cartRedux';
 
 const NavBar = () => {
-  const cart = useSelector(getCart);
-  console.log(cart);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem('cart')) || 0,
+  );
 
+  console.log(cart);
   return (
     <Navbar className={styles.navbar}>
       <Container>
@@ -46,7 +48,7 @@ const NavBar = () => {
                 </Button>
               </Form>
             </Col>
-            <Col className="col-3">
+            <Col className="col-1">
               <Link
                 to="/cart"
                 className={'d-flex align-items-center justify-content-around '}
@@ -54,14 +56,21 @@ const NavBar = () => {
                 <Button className={styles.bnt} variant="outline-secondary">
                   <BsCart />
                 </Button>
-                <p
-                  className={
-                    'd-flex align-items-center justify-content-center m-0 p-1 '
-                  }
-                ></p>
               </Link>
             </Col>
-            <Col className="col-2">
+            <Col className={'col-2'}>
+              {cart.length && (
+                <p
+                  className={
+                    'd-flex align-items-center justify-content-center m-0 ' +
+                    styles.cartLenght
+                  }
+                >
+                  {cart.length}
+                </p>
+              )}
+            </Col>
+            <Col className="col-3">
               <Nav>
                 <NavDropdown title="User Panel">
                   <NavDropdown.Item href="/loginUser">Login</NavDropdown.Item>

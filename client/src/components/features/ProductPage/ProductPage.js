@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Button, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import shortid from 'shortid';
 import { API_URL } from '../../../config';
 import { addCart } from '../../../redux/cartRedux';
 import { getProductsById } from '../../../redux/productsRedux';
@@ -12,6 +13,8 @@ const ProductPage = () => {
   const [activePhoto, setActivePhoto] = useState('');
   const [productData, setproductData] = useState(false);
   const [status, setStatus] = useState('');
+  const [coment, setComent] = useState('');
+
   const [activeSize, setActiveSize] = useState('');
   const [value, setValue] = useState(1);
   const [size, setSize] = useState(null);
@@ -36,17 +39,24 @@ const ProductPage = () => {
   };
   const changeSize = (size) => {
     setSize(size);
+    setActiveSize(size);
   };
 
-  const handleAddCart = () => {
+  const handleAddCart = async () => {
     if (size === null) {
       setStatus('sizeError');
       return;
     }
-    const data = { size, value, productData };
+    const data = { id: shortid(), size, value, productData, coment };
     dispatch(addCart(data));
-    setStatus('succes');
     console.log(data);
+    if (!localStorage.getItem('cart')) {
+      localStorage.setItem('cart', '[]');
+    }
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    cart.push(data);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    setStatus('succes');
   };
 
   if (!productData) {
@@ -70,7 +80,7 @@ const ProductPage = () => {
             <Col xs={12} md={12} lg={12} className="d-flex flex-row">
               {productData.gallery &&
                 productData.gallery.map((item) => (
-                  <div className={styles.gallery} key={item}>
+                  <div className={styles.gallery} key={item.id}>
                     <button
                       className={
                         item.image === activePhoto
@@ -105,10 +115,10 @@ const ProductPage = () => {
             <Quantity onClick={changeQuantify} />
             <div className="d-flex flex-row">
               {productData.size.map((size) => (
-                <div className={styles.size_buttons} key={size}>
+                <div className={styles.size_buttons} key={size.id}>
                   <button
                     className={
-                      size === activeSize
+                      size.size === activeSize
                         ? styles.size_active
                         : styles.size_inactive
                     }
@@ -118,6 +128,14 @@ const ProductPage = () => {
                   </button>
                 </div>
               ))}
+            </div>
+            <div>
+              <textarea
+                onChange={(e) => setComent(e.target.value)}
+                placeholder="Do you want to tell us something to order this product?"
+                rows="4"
+                cols="50"
+              ></textarea>
             </div>
             {status === 'sizeError' && (
               <Alert variant="danger">
