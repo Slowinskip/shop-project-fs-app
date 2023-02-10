@@ -1,5 +1,3 @@
-import { useSelector } from 'react-redux';
-import shortid from 'shortid';
 //selectors
 export const getCart = ({ cart }) => cart;
 export const getCartById = ({ cart }, id) =>
@@ -15,11 +13,8 @@ const cartReducer = (statePart = [], action) => {
     case ADD_CART:
       let index = statePart.findIndex((cart) => cart.id === action.payload.id);
 
-      if (index == -1) return [...statePart, action.payload];
+      if (index === -1) return [...statePart, action.payload];
       return statePart;
-    // return statePart.find(({ cart }) => cart.id === action.id)
-    //   ? statePart
-    //   : [...statePart, { ...action.payload }];
     default:
       return statePart;
   }

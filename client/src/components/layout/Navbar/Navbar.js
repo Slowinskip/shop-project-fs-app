@@ -8,17 +8,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { BsCart, BsSearch } from 'react-icons/bs';
-import { useSelector } from 'react-redux';
-import { getCart } from '../../../redux/cartRedux';
 
 const NavBar = () => {
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem('cart')) || 0,
   );
 
-  console.log(cart);
   return (
     <Navbar className={styles.navbar}>
       <Container>

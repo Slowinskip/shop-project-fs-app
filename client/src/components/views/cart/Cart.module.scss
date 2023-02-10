@@ -1,0 +1,41 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.title {
+  margin-top: 46px;
+}
+
+.left_image {
+  width: 120px;
+  height: 120px;
+}
+
+.button {
+  border-radius: 50%;
+  background-color: red;
+  border: none;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    color: white;
+    font-size: 40px;
+  }
+}
+
+.summary {
+  color: $productInfo-color;
+  height: auto;
+
+  h3 {
+    padding: 20px;
+    border-bottom: 1px solid $global-text-color;
+  }
+  h5 {
+    padding: 20px;
+    border-bottom: 1px solid $global-text-color;
+  }
+}
