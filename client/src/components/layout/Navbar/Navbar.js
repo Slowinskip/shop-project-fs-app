@@ -8,13 +8,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { BsCart, BsSearch } from 'react-icons/bs';
 
 const NavBar = () => {
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem('cart')) || 0,
   );
+
+  useEffect(() => {
+    setCart(JSON.parse(localStorage.getItem('cart')));
+  }, [cart]);
 
   return (
     <Navbar className={styles.navbar}>
@@ -56,7 +60,7 @@ const NavBar = () => {
               </Link>
             </Col>
             <Col className={'col-2'}>
-              {cart.length && (
+              {cart.length > 0 && (
                 <p
                   className={
                     'd-flex align-items-center justify-content-center m-0 ' +

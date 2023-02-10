@@ -37,6 +37,8 @@ const Cart = () => {
                 <th>Size</th>
                 <th>Quantity</th>
                 <th>Price</th>
+                <th>Comment</th>
+                <th></th>
               </tr>
             </thead>
 
@@ -55,10 +57,17 @@ const Cart = () => {
                         />
                       </td>
                       <td className="col-2 py-5">{product.productData.name}</td>
-                      <td className="col-2 py-5">{product.size}</td>
-                      <td className="col-2 py-5">{product.value}</td>
-                      <td className="col-2 py-5">
+                      <td className="col-1 py-5 px-auto">{product.size}</td>
+                      <td className="col-1 py-5 px-4">{product.value}</td>
+                      <td className="col-1 py-5">
                         {product.productData.price * product.value}
+                      </td>
+                      <td className="col-2 py-5">
+                        {product.coment.length > 0 ? (
+                          product.coment
+                        ) : (
+                          <p>No Comment</p>
+                        )}
                       </td>
                       <td className={'col-1 py-5 ' + styles.icon}>
                         <button
