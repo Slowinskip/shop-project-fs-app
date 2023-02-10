@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { Alert, Button, Col, Container, Row, Spinner } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { API_URL } from '../../../config';
+import { addCart } from '../../../redux/cartRedux';
 import { getProductsById } from '../../../redux/productsRedux';
 import Quantity from '../../common/Quantity/Quantity';
 import styles from './ProductPage.module.scss';
 
 const ProductPage = () => {
   const [activePhoto, setActivePhoto] = useState('');
-  const [activeSize, setActiveSize] = useState('');
   const [productData, setproductData] = useState(false);
+  const [status, setStatus] = useState('');
+  const [activeSize, setActiveSize] = useState('');
   const [value, setValue] = useState(1);
-  const [size, setSize] = useState(1);
-
+  const [size, setSize] = useState(null);
+  const dispatch = useDispatch();
   const { id } = useParams();
   const fetchDataRedux = useSelector((state) => getProductsById(state, id));
   useEffect(() => {
@@ -36,7 +38,16 @@ const ProductPage = () => {
     setSize(size);
   };
 
-  console.log(value);
+  const handleAddCart = () => {
+    if (size === null) {
+      setStatus('sizeError');
+      return;
+    }
+    const data = { size, value, productData };
+    dispatch(addCart(data));
+    setStatus('succes');
+    console.log(data);
+  };
 
   if (!productData) {
     return (
@@ -93,7 +104,7 @@ const ProductPage = () => {
             <p>{productData.information}</p>
             <Quantity onClick={changeQuantify} />
             <div className="d-flex flex-row">
-              {productData.size.sort().map((size) => (
+              {productData.size.map((size) => (
                 <div className={styles.size_buttons} key={size}>
                   <button
                     className={
@@ -108,8 +119,23 @@ const ProductPage = () => {
                 </div>
               ))}
             </div>
-            <Button variant="outline-secondary" className={styles.bntAddtoCard}>
-              Add to Card
+            {status === 'sizeError' && (
+              <Alert variant="danger">
+                <Alert.Heading>Choose size</Alert.Heading>
+              </Alert>
+            )}
+            {status === 'succes' && (
+              <Alert variant="success">
+                <Alert.Heading>Add to cart</Alert.Heading>
+              </Alert>
+            )}
+
+            <Button
+              onClick={handleAddCart}
+              variant="outline-secondary"
+              className={styles.bntAddtoCard}
+            >
+              Add to Cart
             </Button>
           </div>
         </Row>

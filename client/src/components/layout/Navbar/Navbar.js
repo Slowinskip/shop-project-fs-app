@@ -10,8 +10,13 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import { BsCart, BsSearch } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
+import { getCart } from '../../../redux/cartRedux';
 
 const NavBar = () => {
+  const cart = useSelector(getCart);
+  console.log(cart);
+
   return (
     <Navbar className={styles.navbar}>
       <Container>
@@ -59,8 +64,10 @@ const NavBar = () => {
             <Col className="col-2">
               <Nav>
                 <NavDropdown title="User Panel">
-                  <NavDropdown.Item href="/login">Login</NavDropdown.Item>
-                  <NavDropdown.Item href="/register">Register</NavDropdown.Item>
+                  <NavDropdown.Item href="/loginUser">Login</NavDropdown.Item>
+                  <NavDropdown.Item href="/registerUser">
+                    Register
+                  </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Col>
