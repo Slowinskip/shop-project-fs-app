@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
-import { FaSketch } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { API_URL } from '../../../config';
@@ -31,13 +30,13 @@ const ProductPage = () => {
   }, []);
 
   const changeQuantify = (value) => {
-    setValue(size);
+    setValue(value);
   };
   const changeSize = (size) => {
     setSize(size);
   };
 
-  console.log(size);
+  console.log(value);
 
   if (!productData) {
     return (

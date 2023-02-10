@@ -18,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/card" element={<InProgress />} />
       </Routes>
       <Footer />
     </main>

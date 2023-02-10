@@ -1,17 +1,51 @@
 import React, { useState } from 'react';
-import { Alert, Button, Container, Form } from 'react-bootstrap';
+import { Alert, Button, Container, Form, Spinner } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import styles from './Login.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../../config';
+import { logIn } from '../../../redux/userRedux';
 
 const Login = () => {
-  const [userName, setUserName] = useState('');
+  const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);
+  const [status, setStatus] = useState(null);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (userName.length < 6 || password < 6) {
-      setError(true);
+    if (login.length < 6 || password < 6) {
+      setStatus('dataError');
     }
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({ login, password }),
+    };
+    setStatus('loading');
+    fetch(API_URL + `/auth-module/login`, options)
+      .then((res) => {
+        if (res.status === 200) {
+          setStatus('success');
+          dispatch(logIn({ login }));
+          setTimeout(() => {
+            navigate('/');
+          }, 3000);
+        } else if (res.status === 400) {
+          setStatus('clientError');
+        } else {
+          setStatus('serverError');
+        }
+      })
+      .catch((err) => {
+        setStatus('serverError');
+      });
   };
 
   return (
@@ -24,17 +58,36 @@ const Login = () => {
         <p>
           For the test, use a ready-made account: login: "" and password: ""
         </p>
-        {error && (
+        {status === 'dataError' && (
           <Alert variant="danger">
-            Username or password is too short. You need at least 6 characters
+            <Alert.Heading>Incorrect data</Alert.Heading>
+            <p>Login or password is too short.</p>
+          </Alert>
+        )}
+
+        {status === 'clientError' && (
+          <Alert variant="danger">
+            <Alert.Heading>Incorrect data</Alert.Heading>
+            <p>Login or password are incorrect.</p>
+          </Alert>
+        )}
+        {status === 'loading' && (
+          <Spinner animation="border" role="status" className="d-block mx-auto">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        )}
+        {status === 'success' && (
+          <Alert variant="success">
+            <Alert.Heading>Success!</Alert.Heading>
+            <p>You have been successfully logged in!</p>
           </Alert>
         )}
         <Form.Group>
           <Form.Label>Login</Form.Label>
           <Form.Control
             type="text"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            value={login}
+            onChange={(e) => setLogin(e.target.value)}
           ></Form.Control>
         </Form.Group>
         <Form.Group>
