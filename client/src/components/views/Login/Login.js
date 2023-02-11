@@ -17,7 +17,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (login.length < 6 || password < 6) {
-      setStatus('dataError');
+      status('dataError');
     }
 
     const options = {

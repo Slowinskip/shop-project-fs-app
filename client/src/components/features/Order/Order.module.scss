@@ -1,0 +1,24 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+// $global-text-color
+.root {
+  margin: 46px 0;
+  color: $productInfo-color;
+  .info {
+    border: 1px solid red;
+    padding: 15px;
+
+    p,
+    h4,
+    h3 {
+      margin-top: 5px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $global-text-color;
+    }
+    div {
+      p {
+        border: none;
+      }
+    }
+  }
+}

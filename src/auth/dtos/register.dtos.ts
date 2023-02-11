@@ -10,10 +10,4 @@ export class RegisterDTO {
   @IsString()
   @Length(5, 40)
   password: string;
-
-  // @IsNotEmpty()
-  // @IsString()
-  // @Length(5, 40)
-  // @Match('password')
-  // passwordRepeat: string;
 }

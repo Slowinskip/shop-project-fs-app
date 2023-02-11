@@ -5,9 +5,11 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()
 export class UsersService {
   constructor(private prismaService: PrismaService) {}
+
   public getAll(): Promise<User[]> {
     return this.prismaService.user.findMany();
   }
+
   public getById(id: User['id']): Promise<User | null> {
     return this.prismaService.user.findUnique({
       where: { id },
@@ -44,43 +46,5 @@ export class UsersService {
         throw new ConflictException('This email already exists');
       }
     }
-  }
-
-  public async updateById(
-    id: User['id'],
-    userData: Omit<User, 'id' | 'role'>,
-    password: string | undefined,
-  ): Promise<User> {
-    try {
-      if (password !== undefined) {
-        return await this.prismaService.user.update({
-          where: { id },
-          data: {
-            ...userData,
-            password: {
-              update: {
-                hashedPassword: password,
-              },
-            },
-          },
-        });
-      }
-      if (password == undefined) {
-        return await this.prismaService.user.update({
-          where: { id },
-          data: userData,
-        });
-      }
-    } catch (error) {
-      if (error.code === 'P2002') {
-        throw new ConflictException('This email already exists');
-      }
-    }
-  }
-
-  public deleteById(id: User['id']): Promise<User> {
-    return this.prismaService.user.delete({
-      where: { id },
-    });
   }
 }

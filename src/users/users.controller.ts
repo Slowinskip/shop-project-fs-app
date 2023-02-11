@@ -24,12 +24,4 @@ export class UsersController {
     if (!user) throw new Error('User not found');
     return user;
   }
-
-  @Delete('/')
-  async delete(@Param('id', new ParseUUIDPipe()) id: string) {
-    if (!(await this.userService.getById(id)))
-      throw new Error('User not found');
-    await this.userService.deleteById(id);
-    return { success: true };
-  }
 }

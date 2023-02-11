@@ -28,13 +28,4 @@ export class AuthController {
       message: 'success',
     });
   }
-
-  @UseGuards(JwtAuthGuard)
-  @Delete('/logout')
-  async logout(@Response() res) {
-    res.clearCookie('auth', { httpOnly: true });
-    res.send({
-      message: 'success',
-    });
-  }
 }

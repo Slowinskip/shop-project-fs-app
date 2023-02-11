@@ -16,9 +16,9 @@ const NavBar = () => {
     JSON.parse(localStorage.getItem('cart')) || 0,
   );
 
-  useEffect(() => {
-    setCart(JSON.parse(localStorage.getItem('cart')));
-  }, [cart]);
+  // useEffect(() => {
+  //   setCart(JSON.parse(localStorage.getItem('cart')));
+  // }, [cart]);
 
   return (
     <Navbar className={styles.navbar}>

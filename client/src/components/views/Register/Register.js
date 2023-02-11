@@ -10,9 +10,11 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (login.length < 6 || password < 6) {
-      setStatus('loginWalidation');
-    }
+
+    // if (login.length < 6 || password < 6) {
+    //   setStatus('loginWalidation');
+    // }
+
     const options = {
       method: 'POST',
       headers: {
@@ -21,6 +23,8 @@ const Register = () => {
       credentials: 'include',
       body: JSON.stringify({ login, password }),
     };
+    console.log(options);
+
     fetch(API_URL + `/auth-module/register`, options).then((res) => {
       if (res.status === 201) {
         setStatus('success');
