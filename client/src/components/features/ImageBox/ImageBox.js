@@ -14,7 +14,7 @@ const ImageBox = () => {
   return (
     <Container>
       <Row className={styles.imageBox}>
-        <Col className={'col-8 '}>
+        <Col md={12} lg={8}>
           <div className={styles.card}>
             <div className={styles.img}>
               <div className={styles.content}>
@@ -46,44 +46,46 @@ const ImageBox = () => {
             </div>
           </div>
         </Col>
-        <Row className={'col-4 '}>
-          <div className={styles.informationBox}>
-            <div className={'col-3 ' + styles.icon}>
-              <MdOutlineLocalShipping size={60} />
-            </div>
-            <div className={'col-8 ' + styles.informationText}>
-              <h2>Free delivery</h2>
-              <h5>Orders over $40</h5>
-            </div>
-          </div>
-          <div className={styles.informationBox}>
-            <div className={'col-3 ' + styles.icon}>
-              <BsCashStack size={60} />
-            </div>
-            <div className={'col-8 ' + styles.informationText}>
-              <h2>Cashback</h2>
-              <h5>You can save 5%</h5>
-            </div>
-          </div>
-          <div className={styles.informationBox}>
-            <div className={'col-3 ' + styles.icon}>
-              <GiReturnArrow size={60} />
-            </div>
-            <div className={'col-8 ' + styles.informationText}>
-              <h2>Free Returns</h2>
-              <h5>Within 14 days of ordering</h5>
-            </div>
-          </div>
-          <div className={styles.informationBox}>
-            <div className={'col-3 ' + styles.icon}>
-              <AiFillPhone size={60} />
-            </div>
-            <div className={'col-8 ' + styles.informationText}>
-              <h2>Support</h2>
-              <h5>We are there for you 24/7</h5>
-            </div>
-          </div>
-        </Row>
+        <Col md={12} lg={4}>
+          <Row>
+            <Col md={6} lg={12} className={styles.informationBox}>
+              <div className={'col-3 ' + styles.icon}>
+                <MdOutlineLocalShipping size={60} />
+              </div>
+              <div className={'col-8 ' + styles.informationText}>
+                <h2>Free delivery</h2>
+                <h5>Orders over $40</h5>
+              </div>
+            </Col>
+            <Col md={6} lg={12} className={styles.informationBox}>
+              <div className={'col-3 ' + styles.icon}>
+                <BsCashStack size={60} />
+              </div>
+              <div className={'col-8 ' + styles.informationText}>
+                <h2>Cashback</h2>
+                <h5>You can save 5%</h5>
+              </div>
+            </Col>
+            <Col md={6} lg={12} className={styles.informationBox}>
+              <div className={'col-3 ' + styles.icon}>
+                <GiReturnArrow size={60} />
+              </div>
+              <div className={'col-8 ' + styles.informationText}>
+                <h2>Free Returns</h2>
+                <h5>Within 14 days of ordering</h5>
+              </div>
+            </Col>
+            <Col md={6} lg={12} className={styles.informationBox}>
+              <div className={'col-3 ' + styles.icon}>
+                <AiFillPhone size={60} />
+              </div>
+              <div className={'col-8 ' + styles.informationText}>
+                <h2>Support</h2>
+                <h5>We are there for you 24/7</h5>
+              </div>
+            </Col>
+          </Row>
+        </Col>
       </Row>
     </Container>
   );
