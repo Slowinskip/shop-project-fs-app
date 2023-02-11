@@ -1,5 +1,4 @@
 import { IsString, Length, IsNotEmpty, IsEmail } from 'class-validator';
-import { Match } from 'src/utils/match.decorator';
 
 export class RegisterDTO {
   @IsNotEmpty()

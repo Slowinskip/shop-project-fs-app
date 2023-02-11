@@ -37,7 +37,7 @@ export class AuthService {
 
     const accessToken = this.jwtService.sign(payload, {
       secret: this.configService.get('jwt.secret'),
-      expiresIn: this.configService.get('expiresIn'),
+      expiresIn: '12',
     });
 
     return {

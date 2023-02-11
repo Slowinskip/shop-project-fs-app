@@ -8,8 +8,8 @@ import {
 import { Injectable, Post, Body } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDTO } from './dtos/register.dtos';
-import { JwtAuthGuard } from './strategy and guard/jwt.guard';
-import { LocalAuthGuard } from './strategy and guard/local.guard';
+import { JwtAuthGuard } from './jwt-auth.guard';
+import { LocalAuthGuard } from './local-auth.guard';
 @Controller('auth-module')
 export class AuthController {
   constructor(private authService: AuthService) {}
@@ -24,6 +24,15 @@ export class AuthController {
   async login(@Request() req, @Response() res) {
     const tokens = await this.authService.createSession(req.user);
     res.cookie('auth', tokens, { httpOnly: true });
+    res.send({
+      message: 'success',
+    });
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete('/logout')
+  async logout(@Response() res) {
+    res.clearCookie('auth', { httpOnly: true });
     res.send({
       message: 'success',
     });
