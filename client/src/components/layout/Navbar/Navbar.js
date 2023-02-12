@@ -15,10 +15,14 @@ const NavBar = () => {
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem('cart')) || 0,
   );
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem('user')) || 0,
+  );
 
-  // useEffect(() => {
-  //   setCart(JSON.parse(localStorage.getItem('cart')));
-  // }, [cart]);
+  useEffect(() => {
+    setCart(JSON.parse(localStorage.getItem('cart')));
+    setUser(JSON.parse(localStorage.getItem('user')));
+  }, [cart]);
 
   return (
     <Navbar className={styles.navbar}>
@@ -73,12 +77,20 @@ const NavBar = () => {
             </Col>
             <Col className="col-3">
               <Nav>
-                <NavDropdown title="User Panel">
-                  <NavDropdown.Item href="/loginUser">Login</NavDropdown.Item>
-                  <NavDropdown.Item href="/registerUser">
-                    Register
-                  </NavDropdown.Item>
-                </NavDropdown>
+                {user ? (
+                  <NavDropdown title={`Hi ${user.login}`}>
+                    <NavDropdown.Item href="/logoutUser">
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <NavDropdown title={'User Panel'}>
+                    <NavDropdown.Item href="/loginUser">Login</NavDropdown.Item>
+                    <NavDropdown.Item href="/registerUser">
+                      Register
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                )}
               </Nav>
             </Col>
           </Row>

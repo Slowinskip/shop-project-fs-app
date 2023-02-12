@@ -9,6 +9,7 @@ import Navbar from './components/layout/Navbar/Navbar';
 import Cart from './components/views/cart/Cart';
 import InProgress from './components/views/InProgress/InProgress';
 import Login from './components/views/Login/Login';
+import Logout from './components/views/Logout/Logout';
 import NotFound from './components/views/NotFound/NotFound';
 import Register from './components/views/Register/Register';
 import Summary from './components/views/Summary/Summary';
@@ -18,6 +19,11 @@ function App() {
   const [cartData, setcartData] = useState(
     JSON.parse(localStorage.getItem('cart')) || 0,
   );
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem('user')) || 0,
+  );
+  console.log(user);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,6 +46,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<Order />} />
         <Route path="/summary" element={<Summary />} />
+        <Route path="/logoutUser" element={<Logout />} />
       </Routes>
       <Footer />
     </main>

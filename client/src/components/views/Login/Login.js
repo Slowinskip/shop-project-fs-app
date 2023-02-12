@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Alert, Button, Container, Form, Spinner } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './Login.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../../config';
-import { logIn } from '../../../redux/userRedux';
+import { getUserByLogin, logIn } from '../../../redux/userRedux';
+import shortid from 'shortid';
 
 const Login = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState(null);
+  const userCheck = useSelector((state) => getUserByLogin(state, login));
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,35 +19,21 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (login.length < 6 || password < 6) {
-      status('dataError');
+      setStatus('dataError');
+    } else if (!userCheck || userCheck.password !== password) {
+      setStatus('clientError');
     }
+    const data = { id: shortid(), login };
 
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify({ login, password }),
-    };
-    setStatus('loading');
-    fetch(API_URL + `/auth-module/login`, options)
-      .then((res) => {
-        if (res.status === 200) {
-          setStatus('success');
-          dispatch(logIn({ login }));
-          setTimeout(() => {
-            navigate('/');
-          }, 3000);
-        } else if (res.status === 400) {
-          setStatus('clientError');
-        } else {
-          setStatus('serverError');
-        }
-      })
-      .catch((err) => {
-        setStatus('serverError');
-      });
+    if (!localStorage.getItem('user')) {
+      localStorage.setItem('user', '[]');
+    }
+    let user = JSON.parse(localStorage.getItem('user'));
+    localStorage.setItem('user', JSON.stringify(data));
+    setStatus('success');
+    setTimeout(() => {
+      navigate('/');
+    }, 3000);
   };
 
   return (
@@ -55,13 +43,12 @@ const Login = () => {
         onSubmit={handleSubmit}
       >
         <h1>Login</h1>
-        <p>
-          For the test, use a ready-made account: login: "" and password: ""
-        </p>
         {status === 'dataError' && (
           <Alert variant="danger">
             <Alert.Heading>Incorrect data</Alert.Heading>
-            <p>Login or password is too short.</p>
+            <p>
+              Login or password is too short. You must use at least 6 characters
+            </p>
           </Alert>
         )}
 
@@ -86,6 +73,7 @@ const Login = () => {
           <Form.Label>Login</Form.Label>
           <Form.Control
             type="text"
+            required={true}
             value={login}
             onChange={(e) => setLogin(e.target.value)}
           ></Form.Control>
@@ -94,6 +82,7 @@ const Login = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
+            required={true}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>

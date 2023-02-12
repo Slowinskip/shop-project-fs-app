@@ -8,7 +8,7 @@ import { getCart } from '../../../redux/cartRedux';
 import { use } from 'passport';
 import { addOrder } from '../../../redux/orderRedux';
 import { useNavigate } from 'react-router-dom';
-
+import { FiChevronRight } from 'react-icons/fi';
 const Order = () => {
   const [name, setName] = useState();
   const [lastName, setLastName] = useState();
@@ -19,6 +19,10 @@ const Order = () => {
   const [totalPrice, setTotalPrice] = useState(getTotalPrice());
   const [deliveryCost, setdeliveryCost] = useState(0);
   const [status, setStatus] = useState();
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem('user')) || 0,
+  );
+
   const {
     register,
     handleSubmit: validate,
@@ -48,12 +52,16 @@ const Order = () => {
         deliveryCost: deliveryCost,
       },
     };
-    dispatch(addOrder(order));
-    setStatus('success');
-    setTimeout(() => {
-      navigate('/summary');
-    }, 3000);
-    localStorage.removeItem('cart');
+    if (cart.length > 0) {
+      dispatch(addOrder(order));
+      setStatus('success');
+      setTimeout(() => {
+        navigate('/summary');
+      }, 3000);
+      localStorage.removeItem('cart');
+    } else {
+      setStatus('error');
+    }
   };
 
   return (
@@ -177,8 +185,14 @@ const Order = () => {
                 ? cart.map((product) => {
                     return (
                       <div className={'d-flex justify-content-between mb-1'}>
-                        <p>{product.productData.name}</p>
-                        <p>{product.productData.price * product.value}$</p>
+                        <p>
+                          <FiChevronRight /> {product.productData.name}
+                        </p>
+                        <p>Size: {product.size}</p>
+                        <p>Quantity: {product.value}</p>
+                        <p>
+                          Price: {product.productData.price * product.value}$
+                        </p>
                       </div>
                     );
                   })
@@ -220,9 +234,13 @@ const Order = () => {
               <h3 className="mt-3">
                 Total Price: {totalPrice + deliveryCost}$
               </h3>
-              <Button variant="outline-secondary" type="submit">
-                Submit your order
-              </Button>
+              {user ? (
+                <Button variant="outline-secondary" type="submit">
+                  Submit your order
+                </Button>
+              ) : (
+                <p>Log in to confirm your order</p>
+              )}
             </Col>
           </Row>
         </Form>
@@ -230,6 +248,12 @@ const Order = () => {
           <Alert variant="success" className="mt-3">
             <Alert.Heading>Success!</Alert.Heading>
             <p>You have placed the order correctly</p>
+          </Alert>
+        )}{' '}
+        {status === 'error' && (
+          <Alert variant="danger" className="mt-3">
+            <Alert.Heading>Something is wrong!</Alert.Heading>
+            <p>Your shopping cart is empty!</p>
           </Alert>
         )}
       </Container>

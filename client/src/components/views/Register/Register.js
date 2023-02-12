@@ -1,41 +1,33 @@
 import React, { useState } from 'react';
 import { Alert, Button, Container, Form, Spinner } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../../config';
+import { addUser, getUserByLogin } from '../../../redux/userRedux';
 import styles from './Register.module.scss';
 
 const Register = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState(null);
-
+  const dispatch = useDispatch();
+  const userCheck = useSelector((state) => getUserByLogin(state, login));
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // if (login.length < 6 || password < 6) {
-    //   setStatus('loginWalidation');
-    // }
-
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify({ login, password }),
-    };
-    console.log(options);
-
-    fetch(API_URL + `/auth-module/register`, options).then((res) => {
-      if (res.status === 201) {
-        setStatus('success');
-      } else if (res.status === 400) {
-        setStatus('clientError');
-      } else if (res.status === 409) {
-        setStatus('loginError');
-      } else {
-        setStatus('serverError');
-      }
-    });
+    const data = { login, password };
+    if (login.length < 6 || password.length < 6) {
+      setStatus('loginWalidation');
+      return;
+    } else if (userCheck) {
+      setStatus('loginError');
+      return;
+    }
+    dispatch(addUser(data));
+    setStatus('success');
+    setTimeout(() => {
+      navigate('/loginUser');
+    }, 3000);
   };
 
   return (
@@ -81,6 +73,7 @@ const Register = () => {
           <Form.Label>Login</Form.Label>
           <Form.Control
             type="text"
+            required={true}
             value={login}
             onChange={(e) => setLogin(e.target.value)}
           ></Form.Control>
@@ -89,6 +82,7 @@ const Register = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
+            required={true}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>

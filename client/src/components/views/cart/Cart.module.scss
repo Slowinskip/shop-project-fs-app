@@ -1,8 +1,8 @@
 @import '../../../styles/settings.scss';
 @import '../../../styles/global.scss';
 
-.title {
-  margin-top: 46px;
+.root {
+  padding: 35px 0;
 }
 
 .left_image {
@@ -30,6 +30,10 @@
   color: $productInfo-color;
   height: auto;
   border: 1px solid $global-text-color;
+
+  p {
+    padding: 20px;
+  }
 
   h3 {
     padding: 20px;

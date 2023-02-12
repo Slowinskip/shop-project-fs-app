@@ -1,7 +1,7 @@
 const initialState = {
   products: [],
   cart: [],
-  user: null,
+  user: [],
   orders: [],
 };
 
