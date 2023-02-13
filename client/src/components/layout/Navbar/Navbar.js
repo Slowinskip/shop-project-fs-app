@@ -20,9 +20,23 @@ const NavBar = () => {
   );
 
   useEffect(() => {
-    setCart(JSON.parse(localStorage.getItem('cart')));
+    if (cart.length !== 0) {
+      setCart(JSON.parse(localStorage.getItem('cart')));
+      getCartLength();
+    }
     setUser(JSON.parse(localStorage.getItem('user')));
   }, [cart]);
+
+  const getCartLength = () => {
+    let total = 0;
+    if (cart.length !== 0) {
+      cart.map((i) => {
+        total = total + 1;
+      });
+    }
+
+    return total;
+  };
 
   return (
     <Navbar className={styles.navbar}>
@@ -64,16 +78,14 @@ const NavBar = () => {
               </Link>
             </Col>
             <Col className={'col-2'}>
-              {cart.length > 0 && (
-                <p
-                  className={
-                    'd-flex align-items-center justify-content-center m-0 ' +
-                    styles.cartLenght
-                  }
-                >
-                  {cart.length}
-                </p>
-              )}
+              <p
+                className={
+                  'd-flex align-items-center justify-content-center m-0 ' +
+                  styles.cartLenght
+                }
+              >
+                {getCartLength() || 0}
+              </p>
             </Col>
             <Col className="col-3">
               <Nav>

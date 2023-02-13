@@ -9,9 +9,9 @@ const Logout = () => {
   const navigate = useNavigate();
   if (user) {
     setTimeout(() => {
-      navigate('/');
       localStorage.removeItem('user');
-    }, 4000);
+      navigate('/');
+    }, 3000);
   }
 
   return (

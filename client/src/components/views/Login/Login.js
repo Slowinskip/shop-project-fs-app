@@ -12,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState(null);
   const userCheck = useSelector((state) => getUserByLogin(state, login));
-
+  console.log(userCheck);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,8 +20,13 @@ const Login = () => {
     e.preventDefault();
     if (login.length < 6 || password < 6) {
       setStatus('dataError');
-    } else if (!userCheck || userCheck.password !== password) {
+      return;
+    } else if (!userCheck) {
       setStatus('clientError');
+      return;
+    } else if (userCheck.password !== password) {
+      setStatus('clientError');
+      return;
     }
     const data = { id: shortid(), login };
 
