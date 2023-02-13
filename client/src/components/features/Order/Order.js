@@ -5,7 +5,6 @@ import { Alert, Button, Col, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCart } from '../../../redux/cartRedux';
-import { use } from 'passport';
 import { addOrder } from '../../../redux/orderRedux';
 import { useNavigate } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
