@@ -43,6 +43,7 @@
     "http-errors": "^2.0.0",
     "install": "^0.13.0",
     "json-server": "0.17.0",
+    "next-auth": "^4.19.2",
     "node": "^19.6.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
