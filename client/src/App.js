@@ -25,13 +25,13 @@ function App() {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (cartData.length > 0) {
-  //     cartData.map((i) => {
-  //       dispatch(addCart(i));
-  //     });
-  //   }
-  // }, [cartData]);
+  useEffect(() => {
+    if (cartData.length > 0) {
+      cartData.map((i) => {
+        dispatch(addCart(i));
+      });
+    }
+  }, [cartData]);
 
   return (
     <main>

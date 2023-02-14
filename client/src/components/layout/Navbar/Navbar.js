@@ -19,13 +19,13 @@ const NavBar = () => {
     JSON.parse(localStorage.getItem('user')) || 0,
   );
 
-  // useEffect(() => {
-  //   if (cart.length !== 0) {
-  //     setCart(JSON.parse(localStorage.getItem('cart')));
-  //     getCartLength();
-  //   }
-  //   setUser(JSON.parse(localStorage.getItem('user')));
-  // }, [cart]);
+  useEffect(() => {
+    if (cart.length !== 0) {
+      setCart(JSON.parse(localStorage.getItem('cart')));
+      getCartLength();
+    }
+    setUser(JSON.parse(localStorage.getItem('user')));
+  }, [cart]);
 
   const getCartLength = () => {
     let total = 0;

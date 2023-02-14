@@ -30,7 +30,7 @@ import { CartModule } from './cart/cart.module';
     // }),
     ConfigModule.forRoot({ load: [configuration], isGlobal: true }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../', 'client', 'build'),
+      rootPath: join('./client/build'),
     }),
     CartModule,
   ],
