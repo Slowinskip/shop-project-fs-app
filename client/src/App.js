@@ -22,17 +22,16 @@ function App() {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem('user')) || 0,
   );
-  console.log(user);
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (cartData.length > 0) {
-      cartData.map((i) => {
-        dispatch(addCart(i));
-      });
-    }
-  }, [cartData]);
+  // useEffect(() => {
+  //   if (cartData.length > 0) {
+  //     cartData.map((i) => {
+  //       dispatch(addCart(i));
+  //     });
+  //   }
+  // }, [cartData]);
 
   return (
     <main>
