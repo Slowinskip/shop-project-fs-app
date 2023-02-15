@@ -1,3 +1,5 @@
+<p align="center">https://fs-shoesshopp.onrender.com/</p>
+<p align="center">Unfortunately, render.com will not always render everything on the first visit to the site</p>
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
