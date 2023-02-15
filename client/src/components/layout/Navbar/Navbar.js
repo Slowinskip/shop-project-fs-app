@@ -20,23 +20,23 @@ const NavBar = () => {
   );
 
   useEffect(() => {
-    if (cart.length !== 0) {
-      setCart(JSON.parse(localStorage.getItem('cart')));
-      getCartLength();
-    }
+    // if (cart.length !== 0) {
+    //   setCart(JSON.parse(localStorage.getItem('cart')));
+    //   getCartLength();
+    // }
     setUser(JSON.parse(localStorage.getItem('user')));
   }, [cart]);
 
-  const getCartLength = () => {
-    let total = 0;
-    if (cart.length !== 0) {
-      cart.map((i) => {
-        total = total + 1;
-      });
-    }
+  // const getCartLength = () => {
+  //   let total = 0;
+  //   if (cart.length !== 0) {
+  //     cart.map((i) => {
+  //       total = total + 1;
+  //     });
+  //   }
 
-    return total;
-  };
+  //   return total;
+  // };
 
   return (
     <Navbar className={styles.navbar}>
@@ -84,7 +84,7 @@ const NavBar = () => {
                   styles.cartLenght
                 }
               >
-                {getCartLength() || 0}
+                {/* {getCartLength() || 0} */}
               </p>
             </Col>
             <Col className="col-3">
