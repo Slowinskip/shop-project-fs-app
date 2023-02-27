@@ -29,7 +29,7 @@ const NavBar = () => {
 
   function getLength() {
     let total = 0;
-    cart.map((i) => {
+    cart.forEach((item) => {
       total = total + 1;
     });
 
