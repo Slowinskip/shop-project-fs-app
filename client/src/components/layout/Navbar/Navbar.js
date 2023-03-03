@@ -13,10 +13,10 @@ import { BsCart, BsSearch } from 'react-icons/bs';
 
 const NavBar = () => {
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem('cart')) || 0,
+    JSON.parse(localStorage.getItem('cart')) || [],
   );
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem('user')) || 0,
+    JSON.parse(localStorage.getItem('user')) || [],
   );
 
   useEffect(() => {
