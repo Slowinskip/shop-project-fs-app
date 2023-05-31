@@ -20,7 +20,7 @@ const NavBar = () => {
   );
 
   useEffect(() => {
-    if (cart.length !== 0) {
+    if (cart.length > 0) {
       setCart(JSON.parse(localStorage.getItem('cart')));
       getLength();
     }
