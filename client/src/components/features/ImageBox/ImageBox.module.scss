@@ -11,8 +11,13 @@
   height: 554px;
   border-radius: 4px;
   display: flex;
+  flex-direction: row;
   gap: 5px;
   z-index: 1;
+  @media (max-width: 800px) {
+    flex-direction: column;
+
+}
 }
 
 .card .img {
@@ -56,11 +61,20 @@
   top: 150%;
   z-index: 1;
   scale: 10%;
-
   color: $color-white;
   opacity: 0;
   transition: all 1s;
   padding: 15px 25px;
+
+  > h2, Button {
+    margin: 5px;
+  }
+
+  @media (max-width: 800px) {
+    display: none;
+
+}
+
   .btn {
     z-index: 1;
     margin-left: 10px;
@@ -71,7 +85,7 @@
   content: '';
   background-color: black;
   min-height: 110px;
-  width: 100%;
+  width: 90%;
   opacity: 0.6;
   position: absolute;
   border-radius: 65px;
@@ -81,6 +95,8 @@
   transition: all 1s;
   transform: translate(-50%, -50%);
   z-index: -1;
+
+ 
 }
 
 .informationBox {
