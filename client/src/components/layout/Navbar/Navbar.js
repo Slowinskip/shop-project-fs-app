@@ -10,6 +10,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link, useLocation } from 'react-router-dom';
 import { BsCart, BsSearch } from 'react-icons/bs';
+import { GiHamburgerMenu} from 'react-icons/gi';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 const NavBar = () => {
   const [cart, setCart] = useState(
@@ -18,6 +21,13 @@ const NavBar = () => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem('user')) || [],
   );
+
+  const [width, setWidth] = useState(window.innerWidth)
+  console.log(width)
+
+  window.addEventListener('resize', (e) => {
+    setWidth(window.innerWidth)
+  })
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -44,7 +54,7 @@ const NavBar = () => {
             <button href="/">F-Step</button>
           </div>
         </Navbar.Brand>
-        <Navbar.Collapse
+        {width > 780 ? <Navbar.Collapse
           id="basic-navbar-nav"
           className="justify-content-between"
         >
@@ -104,7 +114,24 @@ const NavBar = () => {
               </Nav>
             </Col>
           </Row>
-        </Navbar.Collapse>
+        </Navbar.Collapse> : 
+            <DropdownButton
+            id={`dropdown-button-drop-start`}
+            drop='start'
+            variant="outline-secondary"
+            title={<GiHamburgerMenu />}
+          > 
+            {user ? <Dropdown.Item href="/logoutUser">Logout</Dropdown.Item>
+                  : <><Dropdown.Item href="/loginUser">Login</Dropdown.Item>
+                      <Dropdown.Item href="/registerUser">Register</Dropdown.Item>
+                    </>}
+                    <Dropdown.Divider />
+                    <Dropdown.Item href="/">Home</Dropdown.Item>
+
+            <Dropdown.Item href="/cart">Cart <BsCart /></Dropdown.Item>
+          </DropdownButton>
+          
+          }
       </Container>
     </Navbar>
   );
