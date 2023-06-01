@@ -48,7 +48,7 @@ const NavBar = () => {
 
   return (
     <Navbar className={styles.navbar}>
-      <Container>
+      <Container className={styles.container}>
         <Navbar.Brand href="/">
           <div class={styles.logo_div}>
             <button href="/">F-Step</button>
