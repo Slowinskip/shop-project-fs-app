@@ -15,18 +15,37 @@
   .content {
     z-index: 3;
 
+    div{
+      border: 1px solid red;
+    }
+
     Button {
       background-color: white;
       opacity: 0.4;
+
+      @media (max-width: 550px) {
+        display: none;
+    }
+
     }
     Button:hover {
       opacity: 1;
     }
     h3 {
       font-size: $base-size * 4;
+      @media (max-width: 550px) {
+        font-size: $base-size * 2.5;
+    }
+
     }
     p {
       font-size: $base-size * 2;
+      padding-right:20px;
+
+      @media (max-width: 550px) {
+        font-size: $base-size * 1.5;
+        padding-right:0px;
+
     }
   }
 }
@@ -42,4 +61,4 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 0;
-}
+}}

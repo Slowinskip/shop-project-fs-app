@@ -18,7 +18,7 @@ const CarouselRc = () => {
             <div>
               <h3>Meet Nike</h3>
               <div className="d-flex justify-content-center align-items-center ">
-                <p className="px-3 m-0 ">Convenience comes first </p>
+                <p className="m-0 ">Convenience comes first </p>
                 <Button className={styles.btn} variant="light">
                   See more
                 </Button>
@@ -37,7 +37,7 @@ const CarouselRc = () => {
             <div>
               <h3>Runners Choices</h3>
               <div className="d-flex justify-content-center align-items-center ">
-                <p className="px-3 m-0 ">Now up to -30%</p>
+                <p className="m-0 ">Now up to -30%</p>
                 <Button className={styles.btn} variant="light">
                   See more
                 </Button>
@@ -56,7 +56,7 @@ const CarouselRc = () => {
             <div>
               <h3>Just for woman!</h3>
               <div className="d-flex justify-content-center align-items-center ">
-                <p className="px-3 m-0 ">Rose never gets bored</p>
+                <p className="m-0 ">Rose never gets bored</p>
                 <Button className={styles.btn} variant="light">
                   See more
                 </Button>

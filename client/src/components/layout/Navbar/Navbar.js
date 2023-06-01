@@ -129,7 +129,7 @@ const NavBar = () => {
                     <Dropdown.Item href="/">Home</Dropdown.Item>
 
             <Dropdown.Item href="/cart">Cart <BsCart /></Dropdown.Item>
-          </DropdownButton>
+          </DropdownButton> 
           
           }
       </Container>
