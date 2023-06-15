@@ -34,10 +34,6 @@ const ProductPage = () => {
     }
   }, []);
 
-  productData.size.map((siz) => {
-    sizeArray.push(siz.size);
-  });
-
   const changeQuantify = (value) => {
     setValue(value);
   };
@@ -118,7 +114,7 @@ const ProductPage = () => {
             <p>{productData.information}</p>
             <Quantity onClick={changeQuantify} />
             <div className="d-flex flex-row">
-              {sizeArray.sort().map((size) => (
+              {productData.map((size) => (
                 <div className={styles.size_buttons} key={size.id}>
                   <button
                     className={
