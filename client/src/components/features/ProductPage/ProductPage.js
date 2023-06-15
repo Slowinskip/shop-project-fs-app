@@ -34,6 +34,10 @@ const ProductPage = () => {
     }
   }, []);
 
+  for (const siz of productData.size) {
+    sizeArray.push(siz.size);
+  }
+
   const changeQuantify = (value) => {
     setValue(value);
   };
@@ -58,10 +62,6 @@ const ProductPage = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
     setStatus('succes');
   };
-
-  for (const siz of productData.size) {
-    sizeArray.push(siz.size);
-  }
 
   if (!productData) {
     return (
