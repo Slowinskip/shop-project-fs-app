@@ -34,9 +34,9 @@ const ProductPage = () => {
     }
   }, []);
 
-  for (const siz of productData.size) {
+  productData.size.map((siz) => {
     sizeArray.push(siz.size);
-  }
+  });
 
   const changeQuantify = (value) => {
     setValue(value);
