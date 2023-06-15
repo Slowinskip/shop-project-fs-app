@@ -114,7 +114,7 @@ const ProductPage = () => {
             <p>{productData.information}</p>
             <Quantity onClick={changeQuantify} />
             <div className="d-flex flex-row">
-              {productData.size.map((size) => (
+              {productData.size.sort().map((size) => (
                 <div className={styles.size_buttons} key={size.id}>
                   <button
                     className={
