@@ -14,7 +14,7 @@ const ProductPage = () => {
   const [productData, setproductData] = useState(false);
   const [status, setStatus] = useState('');
   const [coment, setComent] = useState('');
-
+  const sizeArray = [];
   const [activeSize, setActiveSize] = useState('');
   const [value, setValue] = useState(1);
   const [size, setSize] = useState(null);
@@ -58,6 +58,10 @@ const ProductPage = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
     setStatus('succes');
   };
+
+  for (const siz of productData.size) {
+    sizeArray.push(siz.size);
+  }
 
   if (!productData) {
     return (
@@ -114,7 +118,7 @@ const ProductPage = () => {
             <p>{productData.information}</p>
             <Quantity onClick={changeQuantify} />
             <div className="d-flex flex-row">
-              {productData.size.sort().map((size) => (
+              {sizeArray.sort().map((size) => (
                 <div className={styles.size_buttons} key={size.id}>
                   <button
                     className={

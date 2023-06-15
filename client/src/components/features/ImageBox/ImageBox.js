@@ -9,10 +9,10 @@ import { GiReturnArrow } from 'react-icons/gi';
 import { AiFillPhone } from 'react-icons/ai';
 
 import { Container } from 'react-bootstrap';
-
 const ImageBox = () => {
   return (
     <Container>
+      1
       <Row className={styles.imageBox}>
         <Col md={12} lg={8}>
           <div className={styles.card}>
